@@ -4,6 +4,13 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.argument('componentType', { type: String, required: true });
+    this.log(this.options.componentType);
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(
