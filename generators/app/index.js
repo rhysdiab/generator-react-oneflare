@@ -29,13 +29,13 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath('MyComponent/MyComponent.jsx'),
-      this.destinationPath('MyComponent/MyComponent.jsx'), {
+      this.destinationPath(this.props.name + '/' + this.props.name + '.jsx'), {
         name: this.props.name
       }
     );
     this.fs.copyTpl(
       this.templatePath('MyComponent/styled/MyComponent.js'),
-      this.destinationPath('MyComponent/styled/MyComponent.js'), {
+      this.destinationPath(this.props.name + '/styled/' + this.props.name + '.js'), {
         name: this.props.name
       }
     );
