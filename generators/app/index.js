@@ -12,24 +12,32 @@ module.exports = class extends Generator {
 
     const prompts = [
       {
-        type: 'confirm',
-        name: 'isClassComponent',
-        message: 'Would you like a class component?',
-        default: true
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of your component?',
+        default: 'MyComponent'
       }
     ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-      this.log(this.props.isClassComponent);
+      this.log(this.props.name);
     });
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('ComponentName/ComponentName.jsx'),
-      this.destinationPath('ComponentName/ComponentName.jsx')
+    this.fs.copyTpl(
+      this.templatePath('MyComponent/MyComponent.jsx'),
+      this.destinationPath('MyComponent/MyComponent.jsx'), {
+        name: this.props.name
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('MyComponent/styled/MyComponent.js'),
+      this.destinationPath('MyComponent/styled/MyComponent.js'), {
+        name: this.props.name
+      }
     );
   }
 
