@@ -1,4 +1,5 @@
 import React from 'react';
+import { <%= name %>Styled } from './styled/<%= name %>Styled';
 
 const <%= name %> = () => {
   return (

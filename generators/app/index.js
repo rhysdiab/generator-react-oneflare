@@ -7,48 +7,34 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.argument('componentType', { type: String, required: true });
-    this.log(this.options.componentType);
-  }
+    this.option('class');
+    this.class = this.options.class ? 'Class' : '';
 
-  prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(`Lets create your react component!`)
-    );
-
-    const prompts = [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is the name of your component?',
-        default: 'MyComponent'
-      }
-    ];
-
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-      this.log(this.props.name);
-    });
+    this.argument('arguments', { type: Array, required: true });
+    this.appName = this.options.arguments[0];
+    this.componentName = this.options.arguments[1];
   }
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath('MyComponent/MyComponent.jsx'),
-      this.destinationPath(this.props.name + '/' + this.props.name + '.jsx'), {
-        name: this.props.name
+      this.templatePath(
+        `MyComponent${this.class}/MyComponent${this.class}.jsx`
+      ),
+      this.destinationPath(`${this.componentName}/${this.componentName}.jsx`),
+      {
+        name: this.componentName
       }
     );
     this.fs.copyTpl(
-      this.templatePath('MyComponent/styled/MyComponent.js'),
-      this.destinationPath(this.props.name + '/styled/' + this.props.name + '.js'), {
-        name: this.props.name
+      this.templatePath(
+        `MyComponent${this.class}/styled/MyComponent${this.class}Styled.js`
+      ),
+      this.destinationPath(
+        `${this.componentName}/styled/${this.componentName}Styled.js`
+      ),
+      {
+        name: this.componentName
       }
     );
-  }
-
-  install() {
-    this.installDependencies();
   }
 };
