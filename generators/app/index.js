@@ -15,6 +15,10 @@ module.exports = class extends Generator {
     this.componentName = this.options.arguments[1];
   }
 
+  paths() {
+    this.destinationRoot(`${this.destinationRoot()}/client/app/site/${this.appName}/components`);
+  }
+
   writing() {
     this.fs.copyTpl(
       this.templatePath(
