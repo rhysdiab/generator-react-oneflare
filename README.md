@@ -1,5 +1,8 @@
 # generator-react-oneflare
 
+Creating a new react component has never been easier with ```
+generator-react-oneflare``` :)
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-react-oneflare using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -11,12 +14,16 @@ npm install -g generator-react-oneflare
 
 ## Creating Your Component
 
-To generate your component you need to specify the app you want the component to be generated in and the component name. Say you wanted to create a component named "BusinessDetails" inside the react app named "BusinessRegistration" for example. All you need to do is run:
+To instantly generate your component, all you need to do is specify the react app you want the component to be generated in, and the name of your component. Say you wanted to create a component named ```
+BusinessDetails``` inside the react app named ```
+BusinessRegistration``` for example. All you'd need to do is run:
 ```bash
 yo react-oneflare BusinessRegistration BusinessDetails
-```
-In the root of your project. ```
-generator-react-oneflare``` will search for the react app named BusinessRegistration and create a directory named BusinessDetails inside. This directory will contain all the files necessary for you to hit the ground running with your component.
+```In the root of your project. ```
+generator-react-oneflare``` will search for the react app named ```BusinessRegistration
+``` and create a directory named ```
+BusinessDetails``` inside. This directory will contain all the files necessary for you to hit the ground running with your ```
+BusinessDetails``` component.
 
 ## Creating a Class Component
 By default, ```
