@@ -1,5 +1,5 @@
 # generator-react-oneflare [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 
+>
 
 ## Installation
 
@@ -10,29 +10,33 @@ npm install -g yo
 npm install -g generator-react-oneflare
 ```
 
-Then generate your new project:
+## Creating Your Component
 
+Generate your component by running:
 ```bash
-yo react-oneflare
+yo react-oneflare AppName ComponentName
+```
+in the root of your project.
+
+This will locate the react app in your project named "AppName" and create a component named "ComponentName".
+
+Say you wanted to create a component named "BusinessDetails" inside the react app named "BusinessRegistration".
+You simply run
+```bash
+yo react-oneflare BusinessRegistration BusinessDetails
 ```
 
-## Getting To Know Yeoman
+## Creating a Class Component
+By default, generator-react-oneflare creates functional components. If you want to create a class component you simply need to add ```bash
+--class``` to the end of your command.
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+If you wanted your "BusinessDetails" component to be a class component for example, you would simply run:
+```bash
+  yo react-oneflare BusinessRegistration BusinessDetails --class
+```
+
+Say you want a
 
 ## License
 
 Apache-2.0 © [rhys5690]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-react-oneflare.svg
-[npm-url]: https://npmjs.org/package/generator-react-oneflare
-[travis-image]: https://travis-ci.org/rhys5690/generator-react-oneflare.svg?branch=master
-[travis-url]: https://travis-ci.org/rhys5690/generator-react-oneflare
-[daviddm-image]: https://david-dm.org/rhys5690/generator-react-oneflare.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/rhys5690/generator-react-oneflare
-[coveralls-image]: https://coveralls.io/repos/rhys5690/generator-react-oneflare/badge.svg
-[coveralls-url]: https://coveralls.io/r/rhys5690/generator-react-oneflare
