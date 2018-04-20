@@ -1,5 +1,4 @@
-# generator-react-oneflare [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
->
+# generator-react-oneflare
 
 ## Installation
 
@@ -12,30 +11,22 @@ npm install -g generator-react-oneflare
 
 ## Creating Your Component
 
-Generate your component by running:
-```bash
-yo react-oneflare AppName ComponentName
-```
-in the root of your project.
-
-This will locate the react app in your project named "AppName" and create a component named "ComponentName".
-
-Say you wanted to create a component named "BusinessDetails" inside the react app named "BusinessRegistration".
-You simply run
+To generate your component you need to specify the app you want the component to be generated in and the component name. Say you wanted to create a component named "BusinessDetails" inside the react app named "BusinessRegistration" for example. All you need to do is run:
 ```bash
 yo react-oneflare BusinessRegistration BusinessDetails
 ```
+In the root of your project. ```
+generator-react-oneflare``` will search for the react app named BusinessRegistration and create a directory named BusinessDetails inside. This directory will contain all the files necessary for you to hit the ground running with your component.
 
 ## Creating a Class Component
-By default, generator-react-oneflare creates functional components. If you want to create a class component you simply need to add ```bash
+By default, ```
+generator-react-oneflare``` creates functional components. If you want to create a class component, all you need to do is add ```
 --class``` to the end of your command.
 
-If you wanted your "BusinessDetails" component to be a class component for example, you would simply run:
+If you wanted your "BusinessDetails" component to be a class component for example, you'd simply run:
 ```bash
   yo react-oneflare BusinessRegistration BusinessDetails --class
 ```
-
-Say you want a
 
 ## License
 
