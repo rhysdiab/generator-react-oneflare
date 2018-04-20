@@ -19,7 +19,8 @@ BusinessDetails``` inside the react app named ```
 BusinessRegistration``` for example. All you'd need to do is run:
 ```bash
 yo react-oneflare BusinessRegistration BusinessDetails
-```In the root of your project. ```
+```
+In the root of your project. ```
 generator-react-oneflare``` will search for the react app named ```BusinessRegistration
 ``` and create a directory named ```
 BusinessDetails``` inside. This directory will contain all the files necessary for you to hit the ground running with your ```
