@@ -7,6 +7,6 @@ const <%= name %> = () => {
       <%= name %>
     </<%= name %>Styled>
   );
-}
+};
 
 export default <%= name %>;
