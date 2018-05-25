@@ -27,6 +27,7 @@ BusinessDetails``` inside. This directory will contain all the files necessary f
 BusinessDetails``` component.
 
 ## Creating a Class Component
+
 By default, ```
 generator-react-oneflare``` creates functional components. If you want to create a class component, all you need to do is add ```
 --class``` to the end of your command.
@@ -36,12 +37,14 @@ If you wanted your "BusinessDetails" component to be a class component for examp
   yo react-oneflare BusinessRegistration BusinessDetails --class
 ```
 
-## Creating an app
-To create an app all you need to do is specify your app name without specifying a component name. To create an app named ```
+## Creating a new app
+
+To create a new app, all you need to do is specify your app name without specifying a component name. To create an app named ```
 InstantBooking```, all you need to do is run:
 ```bash
   yo react-oneflare InstantBooking
 ```
+That's it! Your app will be created for you in the appropriate directory along with a starter component named after the app :)
 
 ## License
 
