@@ -61,24 +61,29 @@ module.exports = class extends Generator {
 
 
 
-        `To set up your app copy the instructions below.
+    `To set up your app copy the instructions below.
 
 
         1) Paste the code below into your view where you want to load your react component.
 
-            <%= stylesheet_link_tag "common-bundle" %>
-            <%= javascript_include_tag "common-bundle" %>
-            <%= javascript_include_tag "${this.appNameWordArrayHyphen.map(word => {
-              return word;
-            }).join('')}bundle" %>
+
+            <% content_for :javascript_bottom do %>
+              <%= javascript_include_tag "${this.appNameWordArrayHyphen.map(word => {
+                return word;
+              }).join('')}bundle" %>
+            <% end %>
 
             <% ${this.appNameWordArrayUnderscore.map(word => {
               return word;
-            }).join('')}app = react_component_hash('${this.appName}App', props: {}) %>
+            }).join('')}app = react_component_hash("${this.appName}", props: {} )}, prerender: true) %>
 
-            <%= ${this.appNameWordArrayUnderscore.map(word => {
-              return word;
-            }).join('')}app["componentCss"] %>
+            <% content_for :stylesheet do %>
+              <%= stylesheet_link_tag "common-bundle" %>
+              <%= ${this.appNameWordArrayUnderscore.map(word => {
+                return word;
+              }).join('')}app["componentCss"] %>
+            <% end %>
+
             <%= ${this.appNameWordArrayUnderscore.map(word => {
               return word;
             }).join('')}app["componentHtml"] %>
