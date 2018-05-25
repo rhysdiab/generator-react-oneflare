@@ -36,6 +36,13 @@ If you wanted your "BusinessDetails" component to be a class component for examp
   yo react-oneflare BusinessRegistration BusinessDetails --class
 ```
 
+## Creating an app
+To create an app all you need to do is specify your app name without specifying a component name. To create an app named ```
+InstantBooking```, all you need to do is run:
+```bash
+  yo react-oneflare InstantBooking
+```
+
 ## License
 
 Apache-2.0 © [rhys5690]()
