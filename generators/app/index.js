@@ -38,8 +38,8 @@ module.exports = class extends Generator {
   writing() {
     if (this.isNewApp) {
       this.fs.copyTpl(
-        this.templatePath(`MyApp/index.js`),
-        this.destinationPath(`${this.appName}/index.js`),
+        this.templatePath(`MyApp/index.jsx`),
+        this.destinationPath(`${this.appName}/index.jsx`),
         {
           name: this.appName
         }
@@ -77,6 +77,7 @@ module.exports = class extends Generator {
 
 
             <% content_for :javascript_bottom do %>
+              <%= javascript_include_tag "common-bundle" %>
               <%= javascript_include_tag "${this.appNameWordArrayHyphen
                 .map(word => {
                   return word;
@@ -90,7 +91,7 @@ module.exports = class extends Generator {
               })
               .join('')}app = react_component_hash("${
           this.appName
-        }", props: {} )}, prerender: true) %>
+        }App", props: {}, prerender: true) %>
 
             <% content_for :stylesheet do %>
               <%= stylesheet_link_tag "common-bundle" %>
@@ -110,7 +111,7 @@ module.exports = class extends Generator {
 
         2) Go to '/Site/client/app/server.jsx' and paste the following line:
 
-             export ${this.appName} from './site/${
+             export ${this.appName}App from './site/${
           this.appName
         }'; // eslint-disable-line no-unused-vars
 
