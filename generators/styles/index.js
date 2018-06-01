@@ -24,13 +24,22 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(`${this.destinationRoot()}/client/app/site/${this.appName}/components/${this.componentName}/styled/${this.componentName}Styled.js`,
-      `${this.destinationRoot()}/client/app/site/${this.appName}/components/${this.componentName}/styled/${this.componentName}Styled.js`, {
-        process: (content) => {
+    this.fs.copy(
+      `${this.destinationRoot()}/client/app/site/${this.appName}/components/${
+        this.componentName
+      }/styled/${this.componentName}Styled.js`,
+      `${this.destinationRoot()}/client/app/site/${this.appName}/components/${
+        this.componentName
+      }/styled/${this.componentName}Styled.js`,
+      {
+        process: content => {
           console.log(content.toString());
-          var newContent = content.toString().replace(/#4a3c9a/gi, "${({ theme }) => theme.color.secondary}");
+          var newContent = content
+            .toString()
+            .replace(/#4a3c9a/gi, '${({ theme }) => theme.color.secondary}');
           return newContent;
         }
-      });
+      }
+    );
   }
 };
