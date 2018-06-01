@@ -30,13 +30,15 @@ module.exports = class extends Generator {
       }/styled/${this.componentName}Styled.js`,
       `${this.destinationRoot()}/client/app/site/${this.appName}/components/${
         this.componentName
-      }/styled/${this.componentName}Styled.js`,
-      {
+      }/styled/${this.componentName}Styled.js`, {
         process: content => {
-          console.log(content.toString());
-          var newContent = content
-            .toString()
-            .replace(/#4a3c9a/gi, '${({ theme }) => theme.color.secondary}');
+          const colorsArray = Object.keys(colors);
+          let newContent = content.toString();
+          colorsArray.map((hexColor) => {
+            const regularExpression = new RegExp(hexColor, 'gi');
+            newContent = newContent
+              .replace(regularExpression, colors[hexColor]);
+          });
           return newContent;
         }
       }
