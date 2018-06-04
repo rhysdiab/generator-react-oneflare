@@ -25,46 +25,56 @@ module.exports = class extends Generator {
   }
 
   paths() {
-    this.destinationRoot(`${this.destinationRoot()}/client/app`);
+    this.destinationRoot(`${this.destinationRoot()}/client`);
   }
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath(`site/MyApp/index.jsx`),
-      this.destinationPath(`site/${this.appName}/index.jsx`), {
+      this.templatePath(`app/site/MyApp/index.jsx`),
+      this.destinationPath(`app/site/${this.appName}/index.jsx`), {
         name: this.appName
       }
     );
     this.fs.copyTpl(
       this.templatePath(
-        `site/MyApp/components/MyComponent${this.class}/MyComponent${this.class}.jsx`
+        `app/site/MyApp/components/MyComponent${this.class}/MyComponent${this.class}.jsx`
       ),
       this.destinationPath(
-        `site/${this.appName}/components/${this.appName}/${this.appName}.jsx`
+        `app/site/${this.appName}/components/${this.appName}/${this.appName}.jsx`
       ), {
         name: this.appName
       }
     );
     this.fs.copyTpl(
       this.templatePath(
-        `site/MyApp/components/MyComponent${this.class}/styled/MyComponent${
+        `app/site/MyApp/components/MyComponent${this.class}/styled/MyComponent${
             this.class
           }Styled.js`
       ),
       this.destinationPath(
-        `site/${this.appName}/components/${this.appName}/styled/${this.appName}Styled.js`
+        `app/site/${this.appName}/components/${this.appName}/styled/${this.appName}Styled.js`
       ), {
         name: this.appName
       }
     );
 
     this.fs.copy(
-      `${this.destinationRoot()}/server.jsx`,
-      `${this.destinationRoot()}/server.jsx`,
+      `${this.destinationRoot()}/app/server.jsx`,
+      `${this.destinationRoot()}/app/server.jsx`,
       {
         process: content => {
           let newContent = content.toString() + `export ${this.appName}App from './site/${this.appName}'; // eslint-disable-line no-unused-vars;`
           return newContent;
+        }
+      }
+    );
+
+    this.fs.copy(
+      `${this.destinationRoot()}/bundles.js`,
+      `${this.destinationRoot()}/bundles.js`,
+      {
+        process: content => {
+          return content;
         }
       }
     );
@@ -77,12 +87,12 @@ module.exports = class extends Generator {
 
 
 <% content_for :javascript_bottom do %>
-<%= javascript_include_tag "common-bundle" %>
-<%= javascript_include_tag "${this.appNameWordArrayHyphen
-.map(word => {
-  return word;
-})
-.join('')}bundle" %>
+  <%= javascript_include_tag "common-bundle" %>
+  <%= javascript_include_tag "${this.appNameWordArrayHyphen
+  .map(word => {
+    return word;
+  })
+  .join('')}bundle" %>
 <% end %>
 
 <% ${this.appNameWordArrayUnderscore
@@ -94,12 +104,12 @@ this.appName
 }App", props: {}, prerender: true) %>
 
 <% content_for :stylesheet do %>
-<%= stylesheet_link_tag "common-bundle" %>
-<%= ${this.appNameWordArrayUnderscore
-.map(word => {
-  return word;
-})
-.join('')}app["componentCss"] %>
+  <%= stylesheet_link_tag "common-bundle" %>
+  <%= ${this.appNameWordArrayUnderscore
+  .map(word => {
+    return word;
+  })
+  .join('')}app["componentCss"] %>
 <% end %>
 
 <%= ${this.appNameWordArrayUnderscore
@@ -109,12 +119,20 @@ return word;
 .join('')}app["componentHtml"] %>
 
 
-2) Go to '/Site/client/app/server.jsx' and paste the following line:
+2) Go to '/Site/client/bundles.js' and paste the following line inside module.exports:
 
-export ${this.appName}App from './site/${
-this.appName
-}'; // eslint-disable-line no-unused-vars
-`
+
+module.exports = {
+  '${this.appNameWordArrayHyphen .map(word => {
+      return word;
+    })
+    .join('')
+    .slice(0, -1)}': bundle('./app/site/${this.appName}'),
+  ...
+      }
+
+3) Restart your server
+    `
     );
   }
 };
