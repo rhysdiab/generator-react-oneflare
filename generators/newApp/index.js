@@ -31,7 +31,8 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath(`app/site/MyApp/index.jsx`),
-      this.destinationPath(`app/site/${this.appName}/index.jsx`), {
+      this.destinationPath(`app/site/${this.appName}/index.jsx`),
+      {
         name: this.appName
       }
     );
@@ -41,19 +42,23 @@ module.exports = class extends Generator {
       ),
       this.destinationPath(
         `app/site/${this.appName}/components/${this.appName}/${this.appName}.jsx`
-      ), {
+      ),
+      {
         name: this.appName
       }
     );
     this.fs.copyTpl(
       this.templatePath(
         `app/site/MyApp/components/MyComponent${this.class}/styled/MyComponent${
-            this.class
-          }Styled.js`
+          this.class
+        }Styled.js`
       ),
       this.destinationPath(
-        `app/site/${this.appName}/components/${this.appName}/styled/${this.appName}Styled.js`
-      ), {
+        `app/site/${this.appName}/components/${this.appName}/styled/${
+          this.appName
+        }Styled.js`
+      ),
+      {
         name: this.appName
       }
     );
@@ -63,7 +68,11 @@ module.exports = class extends Generator {
       `${this.destinationRoot()}/app/server.jsx`,
       {
         process: content => {
-          let newContent = content.toString() + `export ${this.appName}App from './site/${this.appName}'; // eslint-disable-line no-unused-vars;`
+          let newContent =
+            content.toString() +
+            `export ${this.appName}App from './site/${
+              this.appName
+            }'; // eslint-disable-line no-unused-vars;`;
           return newContent;
         }
       }
@@ -80,7 +89,7 @@ module.exports = class extends Generator {
     );
 
     console.log(
-`To set up your app copy the instructions below.
+      `To set up your app copy the instructions below.
 
 
 1) Paste the code below into your view where you want to load your react component.
@@ -89,41 +98,42 @@ module.exports = class extends Generator {
 <% content_for :javascript_bottom do %>
   <%= javascript_include_tag "common-bundle" %>
   <%= javascript_include_tag "${this.appNameWordArrayHyphen
-  .map(word => {
-    return word;
-  })
-  .join('')}bundle" %>
+    .map(word => {
+      return word;
+    })
+    .join('')}bundle" %>
 <% end %>
 
 <% ${this.appNameWordArrayUnderscore
-.map(word => {
-return word;
-})
-.join('')}app = react_component_hash("${
-this.appName
-}App", props: {}, prerender: true) %>
+        .map(word => {
+          return word;
+        })
+        .join('')}app = react_component_hash("${
+        this.appName
+      }App", props: {}, prerender: true) %>
 
 <% content_for :stylesheet do %>
   <%= stylesheet_link_tag "common-bundle" %>
   <%= ${this.appNameWordArrayUnderscore
-  .map(word => {
-    return word;
-  })
-  .join('')}app["componentCss"] %>
+    .map(word => {
+      return word;
+    })
+    .join('')}app["componentCss"] %>
 <% end %>
 
 <%= ${this.appNameWordArrayUnderscore
-.map(word => {
-return word;
-})
-.join('')}app["componentHtml"] %>
+        .map(word => {
+          return word;
+        })
+        .join('')}app["componentHtml"] %>
 
 
 2) Go to '/Site/client/bundles.js' and paste the following line inside module.exports:
 
 
 module.exports = {
-  '${this.appNameWordArrayHyphen .map(word => {
+  '${this.appNameWordArrayHyphen
+    .map(word => {
       return word;
     })
     .join('')

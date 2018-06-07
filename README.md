@@ -1,6 +1,6 @@
 # generator-react-oneflare
 
-Creating a new react component has never been easier with ```
+Creating a new react components at oneflare has never been easier with ```
 generator-react-oneflare``` :)
 
 ## Installation
@@ -39,12 +39,13 @@ If you wanted your "BusinessDetails" component to be a class component for examp
 
 ## Creating a new app
 
-To create a new app, all you need to do is specify your app name without specifying a component name. To create an app named ```
+To create a new app named ```
 InstantBooking```, all you need to do is run:
 ```bash
-  yo react-oneflare InstantBooking
+  yo react-oneflare:newApp InstantBooking
 ```
-That's it! Your app will be created for you in the appropriate directory along with a starter component named after the app :)
+That's it! Your app will be created for you in the appropriate directory along with a starter component named after the app :).
+Instructions on how to load your app in your view will be printed in the console.
 
 ## License
 
