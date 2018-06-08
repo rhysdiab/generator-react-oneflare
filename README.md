@@ -47,6 +47,21 @@ InstantBooking```, all you need to do is run:
 That's it! Your app will be created for you in the appropriate directory along with a starter component named after the app :).
 Instructions on how to load your app in your view will be printed in the console.
 
+## Changing hex colors to variables
+
+To swap out all your hex colors for color variables in your styled component file, run the following command:
+
+```bash
+  yo react-oneflare:styles YourAppName YourComponentName
+  ```
+
+If you wanted to update your BusinessDetailsStyled file with all the latest color variables, you would run:
+
+```
+  yo react-oneflare:styles BusinessRegistration BusinessDetails
+```
+You'll then be asked if you want to overwrite the file. Answer Yes, or 'y'. And your done! All your hex colors will now be color variables!
+
 ## License
 
 Apache-2.0 © [rhys5690]()

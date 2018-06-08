@@ -128,7 +128,7 @@ module.exports = class extends Generator {
         .join('')}app["componentHtml"] %>
 
 
-2) Go to '/Site/client/bundles.js' and paste the following line inside module.exports:
+2) Go to 'client/bundles.js' and paste the following line inside module.exports:
 
 
 module.exports = {
