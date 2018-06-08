@@ -1,6 +1,6 @@
 # generator-react-oneflare
 
-![Alt text](https://i.imgur.com/dkMMrCk.gifv "Optional title")
+<img src="https://i.imgur.com/dkMMrCk.gifv" alt="create component" width="100" height="100">
 
 Creating a new react components at oneflare has never been easier with ```
 generator-react-oneflare``` :)
