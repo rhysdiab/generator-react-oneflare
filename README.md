@@ -1,6 +1,7 @@
 # generator-react-oneflare
 
 ![](https://i.imgur.com/dkMMrCk.gif)
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 Creating a new react components at oneflare has never been easier with ```
 generator-react-oneflare``` :)
