@@ -95,7 +95,7 @@ module.exports = class extends Generator {
 1) Paste the code below into your view where you want to load your react component.
 
 
-<% content_for :javascript_bottom do %>
+<% content_for :javascript do %>
   <%= javascript_include_tag "common-bundle" %>
   <%= javascript_include_tag "${this.appNameWordArrayHyphen
     .map(word => {
@@ -112,20 +112,18 @@ module.exports = class extends Generator {
         this.appName
       }App", props: {}, prerender: true) %>
 
-<% content_for :stylesheet do %>
-  <%= stylesheet_link_tag "common-bundle" %>
-  <%= ${this.appNameWordArrayUnderscore
-    .map(word => {
-      return word;
-    })
-    .join('')}app["componentCss"] %>
-<% end %>
+<%= stylesheet_link_tag "common-bundle" %>
 
 <%= ${this.appNameWordArrayUnderscore
         .map(word => {
           return word;
         })
         .join('')}app["componentHtml"] %>
+<%= ${this.appNameWordArrayUnderscore
+  .map(word => {
+    return word;
+  })
+  .join('')}app["componentCss"] %>
 
 
 2) Go to 'client/bundles.js' and paste the following line inside module.exports:
