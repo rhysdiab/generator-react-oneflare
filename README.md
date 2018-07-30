@@ -2,7 +2,7 @@
 
 ![Imgur](https://i.imgur.com/RegfGEw.gif)
 
-Creating a new react components at oneflare has never been easier with ```
+Creating new react components at oneflare has never been easier with ```
 generator-react-oneflare``` :)
 
 ## Installation
