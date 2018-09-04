@@ -62,7 +62,7 @@ If you wanted to update your BusinessDetailsStyled file with all the latest colo
 ```
   yo react-oneflare:styles BusinessRegistration BusinessDetails
 ```
-You'll then be asked if you want to overwrite the file. Answer Yes, or 'y'. And your done! All your hex colors will now be color variables!
+You'll then be asked if you want to overwrite the file. Answer Yes, or 'y'. And you're done! All your hex colors will now be color variables!
 
 ## License
 
